@@ -30,17 +30,15 @@ pipeline {
 		
 	stage('Artifactory upload'){
 			steps{
+				script{
 				def server = Artifactory.server 'Artifactory-server'
-
                      def uploadSpec = """{
 
                          "files": [
 
-                             {
+                             {  "pattern": "target/${mavenPom.artifactId}-${mavenPom.version}-${mavenPom.packaging}.jar",
 
-                                   "pattern": "target/${mavenPom.artifactId}-${mavenPom.version}-${mavenPom.packaging}.jar",
-
-                                   "target": "lla-esb-snapshot",
+                                 "target": "lla-esb-snapshot",
 
                                  "flat": "false",
 
@@ -56,6 +54,7 @@ pipeline {
 
                      server.publishBuildInfo(buildInfo)
 
+			}
 			}
 		}
     }	
