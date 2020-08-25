@@ -39,7 +39,7 @@ pipeline {
 
                              {  "pattern": "target/${mavenPom.artifactId}-${mavenPom.version}-${mavenPom.packaging}.jar",
 
-                                 "target": "lla-esb-snapshot",
+                                 "target": "lla-esb-snapshot/{mavenPom.groupID}",
 
                                  "flat": "false",
 
