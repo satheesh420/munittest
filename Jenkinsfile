@@ -31,7 +31,8 @@ pipeline {
 	stage('Artifactory upload'){
 			steps{
 				script{
-				def server = Artifactory.server 'Artifactory-server'
+			def mavenPom = readMavenPom file:'pom.xml'
+			def server = Artifactory.server 'Artifactory-server'
                      def uploadSpec = """{
 
                          "files": [
