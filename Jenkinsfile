@@ -37,7 +37,7 @@ pipeline {
 
                          "files": [
 
-                             {  "pattern": "target/${mavenPom.artifactId}-${mavenPom.version}-${mavenPom.packaging}.jar",
+                             {  "pattern": "./${mavenPom.artifactId}-${mavenPom.version}-${mavenPom.packaging}.jar",
 
                                  "target": "lla-esb-snapshot/${mavenPom.groupID}/${mavenPom.artifactId}/${mavenPom.version}",
 
